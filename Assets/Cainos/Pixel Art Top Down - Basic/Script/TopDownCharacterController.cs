@@ -8,12 +8,7 @@ namespace Cainos.PixelArtTopDown_Basic
     {
         public float speed;
 
-        private Animator animator;
 
-        private void Start()
-        {
-            animator = GetComponent<Animator>();
-        }
 
 
         private void Update()
@@ -22,27 +17,28 @@ namespace Cainos.PixelArtTopDown_Basic
             if (Input.GetKey(KeyCode.A))
             {
                 dir.x = -1;
-                animator.SetInteger("Direction", 3);
+                GetComponent<SpriteRenderer>().flipX = true;
+
             }
             else if (Input.GetKey(KeyCode.D))
             {
                 dir.x = 1;
-                animator.SetInteger("Direction", 2);
+                GetComponent<SpriteRenderer>().flipX = false;
             }
 
             if (Input.GetKey(KeyCode.W))
             {
                 dir.y = 1;
-                animator.SetInteger("Direction", 1);
+
             }
             else if (Input.GetKey(KeyCode.S))
             {
                 dir.y = -1;
-                animator.SetInteger("Direction", 0);
+
             }
 
             dir.Normalize();
-            animator.SetBool("IsMoving", dir.magnitude > 0);
+
 
             GetComponent<Rigidbody2D>().velocity = speed * dir;
         }
