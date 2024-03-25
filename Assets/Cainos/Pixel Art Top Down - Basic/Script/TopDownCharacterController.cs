@@ -6,13 +6,18 @@ namespace Cainos.PixelArtTopDown_Basic
 {
     public class TopDownCharacterController : MonoBehaviour
     {
-        public float speed;
+        private float speed = 4;
 
 
 
 
         private void Update()
         {
+            if (Input.GetKey("escape"))
+            {
+                Application.Quit();
+
+            }
             Vector2 dir = Vector2.zero;
             if (Input.GetKey(KeyCode.A))
             {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public Text Score;
@@ -15,14 +15,20 @@ public class GameManager : MonoBehaviour
     }
     public void NextLevel()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (SceneManager.sceneCountInBuildSettings > nextSceneIndex)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
     }
 
     void Update()
     {
+
         if (CoinsCollected >= 12)
         {
-            UnityEditor.EditorApplication.isPlaying = false;
+            Application.Quit(); 
+
         }
         Score.text = "Found: " + CoinsCollected + "/12";
     }

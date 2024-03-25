@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GuardFlip : MonoBehaviour
 {
     private float timeElapsed = 0;
-    // Start is called before the first frame update
+ 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "PF Player")
         {
-            UnityEditor.EditorApplication.isPlaying = false;
+            SceneManager.LoadScene("Main_Menu");
         }
     }
 
