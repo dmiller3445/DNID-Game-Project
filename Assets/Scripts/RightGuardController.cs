@@ -7,11 +7,11 @@ public class RightGuardController : MonoBehaviour
     private Vector2 newPos;
     private float x, y;
     private int direction = 1;
-    public float speed;
+    private float speed = 3;
 
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         x = gameObject.transform.position.x;
         y = gameObject.transform.position.y;
