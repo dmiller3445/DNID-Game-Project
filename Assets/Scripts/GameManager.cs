@@ -27,8 +27,11 @@ public class GameManager : MonoBehaviour
 
         if (CoinsCollected >= 12)
         {
-            Application.Quit(); 
-
+            int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            if (SceneManager.sceneCountInBuildSettings > nextSceneIndex)
+            {
+                SceneManager.LoadScene(nextSceneIndex);
+            }
         }
         Score.text = "Found: " + CoinsCollected + "/12";
     }

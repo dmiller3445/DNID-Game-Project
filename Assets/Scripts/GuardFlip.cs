@@ -11,7 +11,7 @@ public class GuardFlip : MonoBehaviour
     {
         if (collision.gameObject.name == "PF Player")
         {
-            SceneManager.LoadScene("Main_Menu");
+            SceneManager.LoadScene("Loss_Screen");
         }
     }
 
